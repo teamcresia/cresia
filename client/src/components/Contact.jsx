@@ -35,17 +35,39 @@ const Contact = ({ onOpenProBono }) => {
 
       if (!res.ok) throw new Error("Failed");
 
-      // ✅ CLEAR FORM FIRST
+      // clear data immediately
       setFormData(EMPTY_FORM);
 
-      // ✅ THEN UPDATE UI STATE
-      setLoading(false);
+      // hard UI switch
       setSuccess(true);
+      setLoading(false);
     } catch (err) {
       setLoading(false);
       setError(true);
     }
   };
+
+  /* 🔥 HARD EXIT — THIS IS THE KEY FIX */
+  if (success) {
+    return (
+      <section
+        id="contact"
+        className="py-32 bg-neutral-950 flex justify-center"
+      >
+        <div className="max-w-md text-center px-6">
+          <h3 className="text-2xl text-white font-bold mb-4 font-serif">
+            Request Submitted Successfully 🎉
+          </h3>
+          <p className="text-neutral-400 font-light mb-6">
+            We’ve received your details and will get back to you shortly.
+          </p>
+          <p className="text-sm text-neutral-600">
+            You can safely close this page.
+          </p>
+        </div>
+      </section>
+    );
+  }
 
   return (
     <section id="contact" className="py-32 bg-neutral-950 relative overflow-hidden">
@@ -67,123 +89,69 @@ const Contact = ({ onOpenProBono }) => {
             our systems.
           </p>
 
-          {!success ? (
-            <form
-              onSubmit={handleSubmit}
-              className="max-w-md mx-auto space-y-4 text-left font-sans"
-            >
-              <div>
-                <label className="block text-xs font-bold text-neutral-500 uppercase tracking-wider mb-2">
-                  Name
-                </label>
-                <input
-                  type="text"
-                  name="name"
-                  value={formData.name}
-                  onChange={handleChange}
-                  required
-                  className="w-full bg-neutral-950 border border-neutral-800 text-white p-3 focus:outline-none focus:border-white transition-colors"
-                  placeholder="Founder Name"
-                />
-              </div>
-
-              <div>
-                <label className="block text-xs font-bold text-neutral-500 uppercase tracking-wider mb-2">
-                  Email
-                </label>
-                <input
-                  type="email"
-                  name="email"
-                  value={formData.email}
-                  onChange={handleChange}
-                  required
-                  className="w-full bg-neutral-950 border border-neutral-800 text-white p-3 focus:outline-none focus:border-white transition-colors"
-                  placeholder="founder@company.com"
-                />
-              </div>
-
-              <div>
-                <label className="block text-xs font-bold text-neutral-500 uppercase tracking-wider mb-2">
-                  Current Stage
-                </label>
-                <select
-                  name="stage"
-                  value={formData.stage}
-                  onChange={handleChange}
-                  className="w-full bg-neutral-950 border border-neutral-800 text-neutral-400 p-3 focus:outline-none focus:border-white transition-colors"
-                >
-                  <option>Idea / Pre-Revenue</option>
-                  <option>Early Traction ($1k - $10k MRR)</option>
-                  <option>Scaling ($10k+ MRR)</option>
-                </select>
-              </div>
-
-              <button
-                type="submit"
-                disabled={loading}
-                className="w-full bg-white text-neutral-950 font-bold py-4 mt-4 hover:bg-neutral-200 transition-colors flex items-center justify-center space-x-2"
-              >
-                <span>{loading ? "Submitting..." : "Request Discovery Call"}</span>
-                <ChevronRight size={16} />
-              </button>
-
-              {error && (
-                <p className="text-red-500 text-sm text-center mt-4">
-                  Something went wrong. Please try again.
-                </p>
-              )}
-            </form>
-          ) : (
-            <div className="max-w-md mx-auto py-12 text-center">
-              <h3 className="text-2xl text-white font-bold mb-4 font-serif">
-                Request Submitted Successfully 🎉
-              </h3>
-              <p className="text-neutral-400 font-light mb-6">
-                We’ve received your details and will get back to you shortly.
-              </p>
-              <p className="text-sm text-neutral-600">
-                You can safely close this page.
-              </p>
-            </div>
-          )}
-
-          <p className="mt-6 text-neutral-600 text-sm font-sans">
-            Prefer email?{" "}
-            <a
-              href="mailto:team.cresia@gmail.com"
-              className="text-neutral-400 underline decoration-neutral-600 underline-offset-4 hover:text-white"
-            >
-              team.cresia@gmail.com
-            </a>
-          </p>
-        </motion.div>
-
-        {/* Pro Bono Promo */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="bg-neutral-950 border border-neutral-800 p-8 flex flex-col md:flex-row items-center justify-between gap-6 hover:border-amber-900/40 transition-colors"
-        >
-          <div className="text-left font-sans">
-            <div className="flex items-center gap-2 mb-2">
-              <span className="w-2 h-2 bg-amber-600 rounded-full animate-pulse"></span>
-              <h3 className="text-white font-bold uppercase tracking-widest text-sm">
-                Community Initiative
-              </h3>
-            </div>
-            <p className="text-neutral-400 max-w-md text-sm">
-              Every month, we invest in one high-potential founder through our Pro
-              Bono program. No upfront cost, just alignment.
-            </p>
-          </div>
-
-          <button
-            onClick={onOpenProBono}
-            className="whitespace-nowrap px-6 py-3 border border-neutral-700 text-neutral-300 text-xs font-bold uppercase tracking-widest hover:text-amber-500 hover:border-amber-600 transition-colors font-sans"
+          <form
+            onSubmit={handleSubmit}
+            className="max-w-md mx-auto space-y-4 text-left font-sans"
           >
-            Explore Program
-          </button>
+            <div>
+              <label className="block text-xs font-bold text-neutral-500 uppercase tracking-wider mb-2">
+                Name
+              </label>
+              <input
+                type="text"
+                name="name"
+                value={formData.name}
+                onChange={handleChange}
+                required
+                className="w-full bg-neutral-950 border border-neutral-800 text-white p-3 focus:outline-none focus:border-white transition-colors"
+              />
+            </div>
+
+            <div>
+              <label className="block text-xs font-bold text-neutral-500 uppercase tracking-wider mb-2">
+                Email
+              </label>
+              <input
+                type="email"
+                name="email"
+                value={formData.email}
+                onChange={handleChange}
+                required
+                className="w-full bg-neutral-950 border border-neutral-800 text-white p-3 focus:outline-none focus:border-white transition-colors"
+              />
+            </div>
+
+            <div>
+              <label className="block text-xs font-bold text-neutral-500 uppercase tracking-wider mb-2">
+                Current Stage
+              </label>
+              <select
+                name="stage"
+                value={formData.stage}
+                onChange={handleChange}
+                className="w-full bg-neutral-950 border border-neutral-800 text-neutral-400 p-3 focus:outline-none focus:border-white transition-colors"
+              >
+                <option>Idea / Pre-Revenue</option>
+                <option>Early Traction ($1k - $10k MRR)</option>
+                <option>Scaling ($10k+ MRR)</option>
+              </select>
+            </div>
+
+            <button
+              type="submit"
+              disabled={loading}
+              className="w-full bg-white text-neutral-950 font-bold py-4 mt-4 hover:bg-neutral-200 transition-colors flex items-center justify-center space-x-2"
+            >
+              <span>{loading ? "Submitting..." : "Request Discovery Call"}</span>
+              <ChevronRight size={16} />
+            </button>
+
+            {error && (
+              <p className="text-red-500 text-sm text-center mt-4">
+                Something went wrong. Please try again.
+              </p>
+            )}
+          </form>
         </motion.div>
       </div>
     </section>
