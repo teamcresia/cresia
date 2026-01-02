@@ -155,7 +155,9 @@ const ProBonoPage = ({ onBack }) => {
             </p>
 
             <a
-              href="mailto:team.cresia@gmail.com?subject=Pro%20Bono%20Application"
+              href="https://docs.google.com/forms/d/e/1FAIpQLScZg8hifKUWMx4vHbhFkX79cWOw6xJRC1DKqzLQIbpzkdMFvQ/viewform?usp=sharing&ouid=114223450707501944466"
+              target="_blank"
+              rel="noopener noreferrer"
               className="inline-flex items-center justify-center px-10 py-5 bg-white text-neutral-950 font-bold hover:bg-amber-500 transition-colors w-full md:w-auto font-sans"
             >
               Apply for CRESIA Pro Bono
