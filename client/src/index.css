@@ -1,0 +1,25 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: #0a0a0a;
+  color: #e5e5e5;
+}
+
+/* Selection colors (already used in App.jsx) */
+::selection {
+  background: #ffffff;
+  color: #0a0a0a;
+}
+
+/* Remove default outline glow */
+input:focus,
+select:focus,
+textarea:focus {
+  outline: none;
+}

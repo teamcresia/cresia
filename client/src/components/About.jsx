@@ -1,0 +1,68 @@
+import React from 'react';
+import { motion } from 'framer-motion';
+
+const About = () => {
+  return (
+    <section id="about" className="py-32 bg-neutral-900 border-y border-neutral-800">
+      <div className="max-w-7xl mx-auto px-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-20 items-center">
+          <div className="relative">
+            <div className="aspect-square bg-neutral-800 relative overflow-hidden">
+              <div className="absolute inset-0 bg-neutral-950/20 z-10"></div>
+              <div className="absolute bottom-0 left-0 w-full h-1/2 bg-gradient-to-t from-neutral-900 to-transparent z-20"></div>
+              <div className="grid grid-cols-4 h-full w-full opacity-20">
+                <div className="border-r border-neutral-700"></div>
+                <div className="border-r border-neutral-700"></div>
+                <div className="border-r border-neutral-700"></div>
+                <div className="border-r border-neutral-700"></div>
+              </div>
+              <div className="absolute bottom-8 left-8 z-30">
+                <div className="text-6xl font-serif text-neutral-700 opacity-50">"</div>
+              </div>
+            </div>
+            <div className="absolute top-4 -left-4 w-full h-full border border-neutral-700 -z-10"></div>
+          </div>
+
+          <motion.div
+            initial={{ opacity: 0, x: 20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+          >
+            <span className="text-amber-600 text-xs font-bold tracking-[0.2em] uppercase block mb-6 font-sans">
+              About CRESIA
+            </span>
+            <h2 className="text-3xl md:text-5xl text-white font-bold mb-8 font-serif">
+              Built by founders,<br />for founders.
+            </h2>
+            <div className="space-y-6 text-neutral-400 leading-relaxed font-light text-lg font-sans">
+              <p>
+                We realized that most agencies treat startups like small versions of big corporations. They're not. Startups are chaotic, resource-constrained, and need velocity above all else.
+              </p>
+              <p>
+                CRESIA was born to solve the "Growth Gap"—that awkward phase where you're too big for DIY builders but not ready for a six-figure enterprise agency.
+              </p>
+              <p>
+                We don't sell hours. We sell completed systems. Our goal isn't to keep you on a retainer forever; it's to build your digital foundation so strong that you can eventually outgrow us.
+              </p>
+            </div>
+            <div className="mt-8 pt-8 border-t border-neutral-800">
+              <div className="flex items-center space-x-4">
+                <div className="w-12 h-12 bg-neutral-800 rounded-full flex items-center justify-center font-bold text-white font-serif">
+                  A
+                </div>
+                <div>
+                  <p className="text-white font-medium font-serif">Alex V.</p>
+                  <p className="text-neutral-500 text-sm font-sans">
+                    Founder, CRESIA
+                  </p>
+                </div>
+              </div>
+            </div>
+          </motion.div>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+export default About;
