@@ -39,7 +39,7 @@ const About = () => {
                 We realized that most agencies treat startups like small versions of big corporations. They're not. Startups are chaotic, resource-constrained, and need velocity above all else.
               </p>
               <p>
-                CRESIA was born to solve the "Growth Gap"—that awkward phase where you're too big for DIY builders but not ready for a six-figure enterprise agency.
+                CRESIA was born to solve the "Growth Gap", that awkward phase where you're too big for DIY builders but not ready for a six-figure enterprise agency.
               </p>
               <p>
                 We don't sell hours. We sell completed systems. Our goal isn't to keep you on a retainer forever; it's to build your digital foundation so strong that you can eventually outgrow us.
@@ -51,9 +51,9 @@ const About = () => {
                   A
                 </div>
                 <div>
-                  <p className="text-white font-medium font-serif">Alex V.</p>
+                  <p className="text-white font-medium font-serif">Paridhi & Nandin/ee</p>
                   <p className="text-neutral-500 text-sm font-sans">
-                    Founder, CRESIA
+                    Founders, CRESIA
                   </p>
                 </div>
               </div>
