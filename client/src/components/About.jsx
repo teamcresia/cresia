@@ -6,23 +6,27 @@ const About = () => {
     <section id="about" className="py-32 bg-neutral-900 border-y border-neutral-800">
       <div className="max-w-7xl mx-auto px-6">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-20 items-center">
+          
+          {/* Left Column: Image Replacement */}
           <div className="relative">
-            <div className="aspect-square bg-neutral-800 relative overflow-hidden">
-              <div className="absolute inset-0 bg-neutral-950/20 z-10"></div>
-              <div className="absolute bottom-0 left-0 w-full h-1/2 bg-gradient-to-t from-neutral-900 to-transparent z-20"></div>
-              <div className="grid grid-cols-4 h-full w-full opacity-20">
-                <div className="border-r border-neutral-700"></div>
-                <div className="border-r border-neutral-700"></div>
-                <div className="border-r border-neutral-700"></div>
-                <div className="border-r border-neutral-700"></div>
-              </div>
-              <div className="absolute bottom-8 left-8 z-30">
-                <div className="text-6xl font-serif text-neutral-700 opacity-50">"</div>
-              </div>
+            {/* Image Container */}
+            <div className="aspect-square relative overflow-hidden bg-neutral-800">
+              <img 
+                /* REPLACE THE SRC BELOW WITH YOUR ACTUAL IMAGE URL */
+                src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?q=80&w=1000&auto=format&fit=crop" 
+                alt="Paridhi and Nandinee, Founders of CRESIA" 
+                className="w-full h-full object-cover"
+              />
+              
+              {/* Optional: Subtle dark overlay so the image blends with the dark theme */}
+              <div className="absolute inset-0 bg-neutral-950/20"></div>
             </div>
+            
+            {/* Offset Border Effect (The outline behind the image) */}
             <div className="absolute top-4 -left-4 w-full h-full border border-neutral-700 -z-10"></div>
           </div>
 
+          {/* Right Column: Content */}
           <motion.div
             initial={{ opacity: 0, x: 20 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -45,10 +49,12 @@ const About = () => {
                 We don't sell hours. We sell completed systems. Our goal isn't to keep you on a retainer forever; it's to build your digital foundation so strong that you can eventually outgrow us.
               </p>
             </div>
+            
+            {/* Footer / Signature */}
             <div className="mt-8 pt-8 border-t border-neutral-800">
               <div className="flex items-center space-x-4">
-                <div className="w-12 h-12 bg-neutral-800 rounded-full flex items-center justify-center font-bold text-white font-serif">
-                  A
+                <div className="w-12 h-12 bg-neutral-800 rounded-full flex items-center justify-center font-bold text-white font-serif text-sm">
+                  P&N
                 </div>
                 <div>
                   <p className="text-white font-medium font-serif">Paridhi & Nandinee</p>
