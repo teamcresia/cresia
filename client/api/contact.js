@@ -98,57 +98,57 @@ export default async function handler(req, res) {
       }
     });
 
-    await transporter.sendMail({
-      from: process.env.MAIL_USER,
-      to: process.env.MAIL_USER,
-      subject: '🔔 New Discovery Call Request - CRESIA',
-      html: `
-        <!DOCTYPE html>
-        <html>
-          <head>
-            <style>
-              body { font-family: Arial, sans-serif; line-height: 1.6; color: #333; }
-              .container { max-width: 600px; margin: 0 auto; padding: 20px; }
-              .header { background: #000; color: #fff; padding: 20px; text-align: center; }
-              .content { background: #f4f4f4; padding: 20px; margin: 20px 0; }
-              .field { margin: 15px 0; }
-              .label { font-weight: bold; color: #555; }
-              .value { color: #000; font-size: 16px; }
-              .footer { text-align: center; color: #888; font-size: 12px; padding: 20px; }
-            </style>
-          </head>
-          <body>
-            <div class="container">
-              <div class="header">
-                <h1>🎯 New Discovery Call Request</h1>
-              </div>
-              <div class="content">
-                <div class="field">
-                  <div class="label">Name:</div>
-                  <div class="value">${name}</div>
-                </div>
-                <div class="field">
-                  <div class="label">Email:</div>
-                  <div class="value">${email}</div>
-                </div>
-                <div class="field">
-                  <div class="label">Current Stage:</div>
-                  <div class="value">${stage}</div>
-                </div>
-                <div class="field">
-                  <div class="label">Submitted:</div>
-                  <div class="value">${new Date().toLocaleString('en-US', { timeZone: 'Asia/Kolkata' })} IST</div>
-                </div>
-              </div>
-              <div class="footer">
-                <p>Submitted via CRESIA Discovery Call Form</p>
-                <p>cresia-nu.vercel.app</p>
-              </div>
-            </div>
-          </body>
-        </html>
-      `
-    });
+    // await transporter.sendMail({
+    //   from: process.env.MAIL_USER,
+    //   to: process.env.MAIL_USER,
+    //   subject: '🔔 New Discovery Call Request - CRESIA',
+    //   html: `
+    //     <!DOCTYPE html>
+    //     <html>
+    //       <head>
+    //         <style>
+    //           body { font-family: Arial, sans-serif; line-height: 1.6; color: #333; }
+    //           .container { max-width: 600px; margin: 0 auto; padding: 20px; }
+    //           .header { background: #000; color: #fff; padding: 20px; text-align: center; }
+    //           .content { background: #f4f4f4; padding: 20px; margin: 20px 0; }
+    //           .field { margin: 15px 0; }
+    //           .label { font-weight: bold; color: #555; }
+    //           .value { color: #000; font-size: 16px; }
+    //           .footer { text-align: center; color: #888; font-size: 12px; padding: 20px; }
+    //         </style>
+    //       </head>
+    //       <body>
+    //         <div class="container">
+    //           <div class="header">
+    //             <h1>🎯 New Discovery Call Request</h1>
+    //           </div>
+    //           <div class="content">
+    //             <div class="field">
+    //               <div class="label">Name:</div>
+    //               <div class="value">${name}</div>
+    //             </div>
+    //             <div class="field">
+    //               <div class="label">Email:</div>
+    //               <div class="value">${email}</div>
+    //             </div>
+    //             <div class="field">
+    //               <div class="label">Current Stage:</div>
+    //               <div class="value">${stage}</div>
+    //             </div>
+    //             <div class="field">
+    //               <div class="label">Submitted:</div>
+    //               <div class="value">${new Date().toLocaleString('en-US', { timeZone: 'Asia/Kolkata' })} IST</div>
+    //             </div>
+    //           </div>
+    //           <div class="footer">
+    //             <p>Submitted via CRESIA Discovery Call Form</p>
+    //             <p>cresia-nu.vercel.app</p>
+    //           </div>
+    //         </div>
+    //       </body>
+    //     </html>
+    //   `
+    // });
 
     console.log('Email sent successfully');
 
