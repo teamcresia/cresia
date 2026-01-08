@@ -17,10 +17,9 @@ const validateInput = (data) => {
   }
 
   const validStages = [
-    "Idea / Pre-Revenue",
-    "Early Traction ($1k - $10k MRR)",
-    "Growth Stage ($10k - $100k MRR)",
-    "Scaling ($100k+ MRR)",
+    "Silver",
+    "Gold",
+    "Platinum",
   ];
 
   if (!validStages.includes(stage)) {
