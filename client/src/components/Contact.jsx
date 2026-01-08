@@ -6,7 +6,7 @@ const Contact = ({ onOpenProBono }) => {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
-    stage: "Idea / Pre-Revenue",
+    stage: "Silver",
   });
 
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -55,7 +55,7 @@ const Contact = ({ onOpenProBono }) => {
           setFormData({
             name: "",
             email: "",
-            stage: "Idea / Pre-Revenue",
+            stage: "Silver",
           });
         }, 2000);
       } else {
@@ -130,7 +130,7 @@ const Contact = ({ onOpenProBono }) => {
 
             <div>
               <label className="block text-xs font-bold text-neutral-500 uppercase tracking-wider mb-2">
-                Current Stage
+                Select a Cresia Plan
               </label>
               <select
                 name="stage"
@@ -138,9 +138,9 @@ const Contact = ({ onOpenProBono }) => {
                 onChange={handleChange}
                 className="w-full bg-neutral-950 border border-neutral-800 text-neutral-400 p-3 focus:outline-none focus:border-white transition-colors"
               >
-                <option>Idea / Pre-Revenue</option>
-                <option>Early Traction ($1k - $10k MRR)</option>
-                <option>Scaling ($10k+ MRR)</option>
+                <option>Silver</option>
+                <option>Gold</option>
+                <option>Platinum</option>
               </select>
             </div>
 
